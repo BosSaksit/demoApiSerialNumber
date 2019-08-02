@@ -12,8 +12,8 @@ namespace demoApiSerialNumber.Models
         public string Temple { get; set; }
         public string Province { get; set; }
         public string NameHost { get; set; }
-        public int firstId {get; set; }
-        public int CountGenIdOfMonut { get; set; }
+        public string firstId {get; set; }
+        public string CountGenIdOfMonut { get; set; }
         public int AmountGenId { get; set; }
     } 
 }

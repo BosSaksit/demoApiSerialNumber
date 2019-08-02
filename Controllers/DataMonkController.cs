@@ -16,12 +16,12 @@ namespace demoApiSerialNumber.Controllers
              new DataMonk {MonkId = "1",TypeAmulet = "เหรียญ",NameAmulet = "พระรอทดสอบ1",
              ShapeAmulet = "พิมพ์ใหญ่",CompoundAmulet = "ทองแดง",NameMonk = "พระอาจารย์ทดสอบ1",
              DateConsecrate = "15/02/19",Temple = "วัดทดสอบระบบ",Province = "ขอนแก่น",NameHost = "คณะลูกศิษย์",
-             firstId = 12,CountGenIdOfMonut = 1,AmountGenId = 5},
+             firstId = "12",CountGenIdOfMonut = "1",AmountGenId = 5},
 
              new DataMonk {MonkId = "2",TypeAmulet = "ผง",NameAmulet = "พระรอทดสอบ2",
              ShapeAmulet = "พิมพ์เล็ก",CompoundAmulet = "ว่านไม้มงคล",NameMonk = "พระอาจารย์ทดสอบ2",
              DateConsecrate = "30/04/19",Temple = "วัดทดสอบระบบ2",Province = "นครพนม",NameHost = "คณะลูกศิษย์99",
-             firstId = 13,CountGenIdOfMonut = 2,AmountGenId = 5},
+             firstId = "13",CountGenIdOfMonut = "2",AmountGenId = 5},
 
 
         };
@@ -43,9 +43,15 @@ namespace demoApiSerialNumber.Controllers
         [HttpPost]
         public DataMonk AddMonkData([FromBody] DataMonk data)
         {
+            
             for (int i = 1; i <= data.AmountGenId; i++)
             {
-                var id = data.firstId.ToString() + data.CountGenIdOfMonut.ToString() + "000" + i;
+                Random rnd = new Random();
+                int NumberRandom = rnd.Next(0, 9);
+                string first = data.firstId.ToString();
+                string count = data.CountGenIdOfMonut.ToString();
+                
+                var id = first + count + "000" + i + NumberRandom.ToString();
 
                 var item = new DataMonk
                 {
