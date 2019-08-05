@@ -3,6 +3,7 @@ namespace demoApiSerialNumber.Models
     public class DataMonk
     {
         public string MonkId { get; set; }
+        public string Serial {get; set; }
         public string TypeAmulet { get; set; }
         public string NameAmulet { get; set; }
         public string ShapeAmulet { get; set; }
