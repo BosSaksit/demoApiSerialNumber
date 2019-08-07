@@ -3,6 +3,7 @@ namespace demoApiSerialNumber.Models
     public class DataMonk
     {
         public string MonkId { get; set; }
+        public string CountMonk { get; set;}
         public string Serial {get; set; }
         public string TypeAmulet { get; set; }
         public string NameAmulet { get; set; }
@@ -14,7 +15,7 @@ namespace demoApiSerialNumber.Models
         public string Province { get; set; }
         public string NameHost { get; set; }
         public string firstId {get; set; }
-        public string CountGenIdOfMonut { get; set; }
+        public string CountGenIdOfMount { get; set; }
         public int AmountGenId { get; set; }
     } 
 }

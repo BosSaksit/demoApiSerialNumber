@@ -16,12 +16,12 @@ namespace demoApiSerialNumber.Controllers
              new DataMonk {MonkId = "1",Serial = "1234",TypeAmulet = "เหรียญ",NameAmulet = "พระรอทดสอบ1",
              ShapeAmulet = "พิมพ์ใหญ่",CompoundAmulet = "ทองแดง",NameMonk = "พระอาจารย์ทดสอบ1",
              DateConsecrate = "15/02/19",Temple = "วัดทดสอบระบบ",Province = "ขอนแก่น",NameHost = "คณะลูกศิษย์",
-             firstId = "12",CountGenIdOfMonut = "1",AmountGenId = 5},
+             firstId = "12",CountGenIdOfMount = "1",AmountGenId = 5},
 
              new DataMonk {MonkId = "2",Serial = "123455",TypeAmulet = "ผง",NameAmulet = "พระรอทดสอบ2",
              ShapeAmulet = "พิมพ์เล็ก",CompoundAmulet = "ว่านไม้มงคล",NameMonk = "พระอาจารย์ทดสอบ2",
              DateConsecrate = "30/04/19",Temple = "วัดทดสอบระบบ2",Province = "นครพนม",NameHost = "คณะลูกศิษย์99",
-             firstId = "13",CountGenIdOfMonut = "2",AmountGenId = 5},
+             firstId = "13",CountGenIdOfMount = "2",AmountGenId = 5},
 
 
         };
@@ -53,11 +53,12 @@ namespace demoApiSerialNumber.Controllers
             // var id = first + count + "000" + runId + NumberRandom.ToString();
 
             var id = Guid.NewGuid().ToString();
-            var serial = DataMonkz.firstId + DataMonkz.CountGenIdOfMonut + "000" + DataMonkz.MonkId + NumberRandom;
+            var serial = DataMonkz.firstId + DataMonkz.CountGenIdOfMount + "000" + DataMonkz.MonkId + NumberRandom;
             var item = new DataMonk
             {
                 MonkId = id,
                 Serial = serial,
+                CountMonk = DataMonkz.CountMonk,
                 TypeAmulet = DataMonkz.TypeAmulet,
                 NameAmulet = DataMonkz.NameAmulet,
                 ShapeAmulet = DataMonkz.ShapeAmulet,
@@ -68,7 +69,7 @@ namespace demoApiSerialNumber.Controllers
                 Province = DataMonkz.Province,
                 NameHost = DataMonkz.NameHost,
                 firstId = DataMonkz.firstId,
-                CountGenIdOfMonut = DataMonkz.CountGenIdOfMonut,
+                CountGenIdOfMount = DataMonkz.CountGenIdOfMount,
                 AmountGenId = DataMonkz.AmountGenId
 
             };
@@ -85,6 +86,7 @@ namespace demoApiSerialNumber.Controllers
             var item = new DataMonk
             {
                 MonkId = id.ToString(),
+                CountMonk = data.CountMonk,
                 TypeAmulet = data.TypeAmulet,
                 NameAmulet = data.NameAmulet,
                 ShapeAmulet = data.ShapeAmulet,
@@ -95,7 +97,7 @@ namespace demoApiSerialNumber.Controllers
                 Province = data.Province,
                 NameHost = data.NameHost,
                 firstId = data.firstId,
-                CountGenIdOfMonut = data.CountGenIdOfMonut,
+                CountGenIdOfMount = data.CountGenIdOfMount,
                 AmountGenId = data.AmountGenId
             };
             MonkData.Remove(_id);
