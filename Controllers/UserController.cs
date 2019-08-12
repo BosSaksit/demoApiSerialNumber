@@ -13,8 +13,8 @@ namespace demoApiSerialNumber.Controllers
     {
         public static List<User> UserData = new List<User>
         {
-             new User {UserId = "1",Name = "teset1",Tel = "0841543232",Address = "15/78 testewsf",Idcard = "1231654868"},
-             new User {UserId = "2",Name = "test2",Tel = "0695557455",Address = "15/78 testewsf",Idcard = "1231654868"},
+             new User {IdUser = "1",NameUser = "teset1",TelUser = "0841543232",AddressUser = "15/78 testewsf",IdcardUser = "1231654868"},
+             new User {IdUser = "2",NameUser = "test2",TelUser = "0695557455",AddressUser = "15/78 testewsf",IdcardUser = "1231654868"},
         };
         // GET api/values
         [HttpGet]
@@ -27,7 +27,7 @@ namespace demoApiSerialNumber.Controllers
         [HttpGet("{id}")]
         public ActionResult<User> GetById(string id)
         {
-            return UserData.FirstOrDefault(it =>it.UserId == id.ToString());
+            return UserData.FirstOrDefault(it =>it.IdUser == id.ToString());
         }
 
         // POST api/values
@@ -37,28 +37,28 @@ namespace demoApiSerialNumber.Controllers
             var id = Guid.NewGuid().ToString();
             var item = new User
             {
-                UserId = id,
-                Name = Userx.Name,
-                Tel = Userx.Tel,
-                Address = Userx.Address,
-                Idcard = Userx.UserId
+                IdUser = id.ToString(),
+                NameUser = Userx.NameUser,
+                TelUser = Userx.TelUser,
+                AddressUser = Userx.AddressUser,
+                IdcardUser = Userx.IdcardUser
             };
             UserData.Add(item);
-            return Userx;
+            return item;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
         public User EditUser(string id, [FromBody] User Userx)
         {
-            var _id = UserData.FirstOrDefault(it => it.UserId == id.ToString());
+            var _id = UserData.FirstOrDefault(it => it.IdUser == id.ToString());
              var item = new User
             {
-                UserId = id,
-                Name = Userx.Name,
-                Tel = Userx.Tel,
-                Address = Userx.Address,
-                Idcard = Userx.Idcard
+                IdUser = id,
+                NameUser = Userx.NameUser,
+                TelUser = Userx.TelUser,
+                AddressUser = Userx.AddressUser,
+                IdcardUser = Userx.IdcardUser
             };
             UserData.Remove(_id);
             UserData.Add(item);
@@ -69,7 +69,7 @@ namespace demoApiSerialNumber.Controllers
         [HttpDelete("{id}")]
         public void DeleteUser(string id)
         {
-            var delete = UserData.FirstOrDefault(it => it.UserId == id.ToString());
+            var delete = UserData.FirstOrDefault(it => it.IdUser == id.ToString());
             UserData.Remove(delete);
         }
     }

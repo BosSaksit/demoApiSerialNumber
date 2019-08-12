@@ -13,12 +13,12 @@ namespace demoApiSerialNumber.Controllers
     {
         public static List<DataMonk> MonkData = new List<DataMonk>
         {
-             new DataMonk {MonkId = "1",Serial = "1234",TypeAmulet = "เหรียญ",NameAmulet = "พระรอทดสอบ1",
+             new DataMonk {MonkId = "1",CountMonk = "1/5",Serial = "1234",TypeAmulet = "เหรียญ",NameAmulet = "พระรอทดสอบ1",
              ShapeAmulet = "พิมพ์ใหญ่",CompoundAmulet = "ทองแดง",NameMonk = "พระอาจารย์ทดสอบ1",
              DateConsecrate = "15/02/19",Temple = "วัดทดสอบระบบ",Province = "ขอนแก่น",NameHost = "คณะลูกศิษย์",
              firstId = "12",CountGenIdOfMount = "1",AmountGenId = 5},
 
-             new DataMonk {MonkId = "2",Serial = "123455",TypeAmulet = "ผง",NameAmulet = "พระรอทดสอบ2",
+             new DataMonk {MonkId = "2",CountMonk = "2/5",Serial = "123455",TypeAmulet = "ผง",NameAmulet = "พระรอทดสอบ2",
              ShapeAmulet = "พิมพ์เล็ก",CompoundAmulet = "ว่านไม้มงคล",NameMonk = "พระอาจารย์ทดสอบ2",
              DateConsecrate = "30/04/19",Temple = "วัดทดสอบระบบ2",Province = "นครพนม",NameHost = "คณะลูกศิษย์99",
              firstId = "13",CountGenIdOfMount = "2",AmountGenId = 5},
@@ -37,6 +37,12 @@ namespace demoApiSerialNumber.Controllers
         public ActionResult<DataMonk> GetMonkDataById(string id)
         {
             return MonkData.FirstOrDefault(it => it.MonkId == id.ToString());
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult<DataMonk> GetMonkDataBySerial(string id)
+        {
+            return MonkData.FirstOrDefault(it => it.Serial == id.ToString());
         }
 
         // POST api/values

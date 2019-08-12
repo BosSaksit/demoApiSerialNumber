@@ -2,10 +2,10 @@ namespace demoApiSerialNumber.Models
 {
     public class User
     {
-        public string UserId { get; set; }
-        public string Name { get; set; }
-        public string Tel { get; set; }
-        public string Address { get; set; }
-        public string Idcard { get; set; }
+        public string IdUser { get; set; }
+        public string NameUser { get; set; }
+        public string TelUser { get; set; }
+        public string AddressUser { get; set; }
+        public string IdcardUser { get; set; }
     }
 }
